@@ -1,9 +1,8 @@
 "use client";
 import { FaRegHandPointLeft } from "react-icons/fa";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import UpdateProductForm from "@/components/UpdateProductForm";
 import UpdateNoteForm from "@/components/UpdateNoteForm";
 
 export default function Edit() {
@@ -48,7 +47,9 @@ export default function Edit() {
       
       <div className="p-3">
         {notes != null ? (
-        <UpdateNoteForm {...notes} />
+        <Suspense>
+          <UpdateNoteForm {...notes} />
+        </Suspense>
         ):(
         <div className="w-full h-full flex items-center justify-center">در حال بارگزاری لطفا صبور باشید</div>
       )}

@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
 import { AuthProvider } from "./Providers";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,6 +14,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        <title>Admin Maher</title>
+        <link rel="shortcut icon" href="/favicon.png" />
+      </Head>
       <body className="h-full bg-fixed bg-gradient-to-b from-teal-500 w-100 ">
         
         <div className="main scroll-smooth">

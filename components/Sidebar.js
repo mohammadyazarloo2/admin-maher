@@ -12,7 +12,7 @@ export default function Sidebar(props) {
       <div className="bg-gray-800 px-4 py-8 w-full text-right">
         <div className="flex flex-col items-center ">
           <div className="sidebar-head-img border-2 border-gray-400 rounded-full p-3">
-            <Image src="/logo.png" width={"100"} height={"100"} />
+            <Image src="/logo.png" width={"100"} height={"100"} alt='the holder' />
           </div>
           <span className="text-lg text-white py-2"> {props.name} </span>
         </div>
