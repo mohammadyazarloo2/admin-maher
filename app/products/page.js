@@ -8,7 +8,9 @@ export default function Products() {
   const [products, setProduct] = useState([]);
 
   useEffect(() => {
-    fetch("/api/products",{cache: 'no-store'})
+    fetch("/api/products", {
+      next: { revalidate: 1 }, // Revalidate every 1 seconds
+    })
       .then((res) => res.json())
       .then((data) => setProduct(data.data));
   });
@@ -80,7 +82,7 @@ export default function Products() {
                 </td>
                 <td className=" text-center">
                   <Link
-                    href={"/products/edit?id="+ data._id}
+                    href={"/products/edit?id=" + data._id}
                     className="px-3 py-2 flex justify-center items-center"
                   >
                     <CiEdit className="w-6 h-6 bg-cyan-400 text-black text-center rounded-md" />
