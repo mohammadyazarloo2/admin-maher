@@ -8,7 +8,7 @@ export default function Products() {
   const [products, setProduct] = useState([]);
 
   useEffect(() => {
-    fetch("/api/products")
+    fetch("/api/products",{cache: 'no-store'})
       .then((res) => res.json())
       .then((data) => setProduct(data.data));
   });
@@ -21,7 +21,7 @@ export default function Products() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ _id: _id }),
-      },{cache: 'no-store'});
+      });
       router.push("/products");
     } catch (error) {
       console.log(error);
