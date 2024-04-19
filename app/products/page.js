@@ -21,7 +21,7 @@ export default function Products() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ _id: _id }),
-      });
+      },{cache: 'no-store'});
       router.push("/products");
     } catch (error) {
       console.log(error);
