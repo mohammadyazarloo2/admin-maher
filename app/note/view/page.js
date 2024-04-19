@@ -1,9 +1,8 @@
 "use client";
 import { FaRegHandPointLeft } from "react-icons/fa";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState,Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { motion } from "framer-motion";
 
 export default function View() {
   const [notes, setNote] = useState(null);
@@ -32,13 +31,10 @@ export default function View() {
   };
 
   return (
-    <div className="p-3 mx-4">
+    <Suspense>
+<div className="p-3 mx-4">
       {notes != null ? (
-        <motion.div
-          variants={variants}
-          initial="hidden"
-          animate="enter"
-          transition={{ type: "linear" }}
+        <div
         >
           <div className="flex justify-between items-center">
             <h2 className="py-3"> </h2>
@@ -56,12 +52,14 @@ export default function View() {
             </div>
             <div className="py-3">{notes.textNote}</div>
           </div>
-        </motion.div>
+        </div>
       ) : (
         <div className="w-full h-full flex items-center justify-center">
           در حال بارگزاری لطفا صبور باشید
         </div>
       )}
     </div>
+    </Suspense>
+    
   );
 }

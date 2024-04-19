@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "../components/Header";
 import { AuthProvider } from "./Providers";
 import Head from "next/head";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,11 +24,17 @@ export default function RootLayout({ children }) {
         <div className="main scroll-smooth">
           <AuthProvider>
           <Header />
-
+          <Suspense fallback={<BigSpinner />}>
           {children}
+          </Suspense>
           </AuthProvider>
         </div>
       </body>
     </html>
   );
+}
+
+
+function BigSpinner() {
+  return <h2>🌀 Loading...</h2>;
 }
