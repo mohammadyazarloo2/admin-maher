@@ -14,3 +14,4 @@ export async function POST(req, res) {
     return NextResponse.json({ message: error });
   }
 }
+export const dynamic = 'force-dynamic'

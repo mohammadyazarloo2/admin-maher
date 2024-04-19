@@ -15,3 +15,4 @@ export async function PUT(req, res) {
     return NextResponse.json({ message: error });
   }
 }
+export const dynamic = 'force-dynamic'
